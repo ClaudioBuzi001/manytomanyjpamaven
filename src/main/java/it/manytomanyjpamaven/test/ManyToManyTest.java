@@ -43,6 +43,8 @@ public class ManyToManyTest {
 			
 			testContaUtentiAdmin(utenteServiceInstance);
 			
+			testTrovaUtentiConPasswordMinoreDiOttoCaratteri(utenteServiceInstance);
+			
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -216,7 +218,20 @@ public class ManyToManyTest {
 	
 	
 	
-	
+	private static void testTrovaUtentiConPasswordMinoreDiOttoCaratteri(UtenteService utenteServiceInstance) {
+		System.out.println(".......testTrovaUtentiConPasswordMinoreDiOttoCaratteri inizio.............");
+
+		List<Utente> result = utenteServiceInstance.trovaUtentiConPasswordMinoreDiOttoCaratteri();
+		
+		if (result.size() == 0)
+			throw new RuntimeException("testTrovaUtentiConPasswordMinoreDiOttoCaratteri fallito ");
+		for(Utente utenteItem : result)
+			System.out.println(utenteItem.getNome()+ " " + utenteItem.getUsername());
+
+		System.out.println(".......testTrovaUtentiConPasswordMinoreDiOttoCaratteri fine: PASSED.............");
+		
+		
+	}
 	
 	
 	

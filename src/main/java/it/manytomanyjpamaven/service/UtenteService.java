@@ -29,6 +29,8 @@ public interface UtenteService {
 	
 	public long contaUtentiAdmin();
 	
+	public List<Utente> trovaUtentiConPasswordMinoreDiOttoCaratteri();
+	
 	
 	//TODO Implementare firma metodi aggiuntivi
 
