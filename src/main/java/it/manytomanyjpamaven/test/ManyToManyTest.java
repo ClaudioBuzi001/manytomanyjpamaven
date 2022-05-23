@@ -1,6 +1,7 @@
 package it.manytomanyjpamaven.test;
 
 import java.util.Date;
+import java.util.List;
 
 import it.manytomanyjpamaven.dao.EntityManagerUtil;
 import it.manytomanyjpamaven.model.Ruolo;
@@ -37,6 +38,8 @@ public class ManyToManyTest {
 			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
 
 			testRimuoviUtente(utenteServiceInstance);
+			
+			testTrovaTuttiConDataCreazineAGiugno(utenteServiceInstance)	;
 			
 			
 		} catch (Throwable e) {
@@ -177,6 +180,35 @@ public class ManyToManyTest {
 
 		System.out.println(".......testRimuoviUtente fine: PASSED.............");
 	}
+	
+	
+	
+	private static void testTrovaTuttiConDataCreazineAGiugno(UtenteService utenteServiceInstance) {
+		System.out.println(".......testTrovaTuttiConDataCreazineAGiugno inizio.............");
+
+		List<Utente> result = utenteServiceInstance.trovaTuttiConDataCreazineAGiugno();
+		
+		if (result.size() == 0)
+			throw new RuntimeException("testTrovaTuttiConDataCreazineAGiugno fallito ");
+		for(Utente utenteItem : result)
+			System.out.println(utenteItem.getNome()+" "+ utenteItem.getUsername());
+
+		System.out.println(".......testTrovaTuttiConDataCreazineAGiugno fine: PASSED.............");
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 //	private static void testRimoviRuolo(RuoloService ruoloServiceInstance) {

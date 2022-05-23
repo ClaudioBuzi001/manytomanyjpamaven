@@ -24,6 +24,8 @@ public interface UtenteService {
 	public void rimuoviRuoloDaUtente(Long idUtente,Long idRuolo) throws Exception;
 
 	public Utente caricaUtenteSingoloConRuoli(Long id) throws Exception;
+	
+	public List<Utente>	trovaTuttiConDataCreazineAGiugno();
 
 	// per injection
 	public void setUtenteDAO(UtenteDAO utenteDAO);

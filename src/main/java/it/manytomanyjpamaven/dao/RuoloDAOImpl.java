@@ -61,4 +61,11 @@ public class RuoloDAOImpl implements RuoloDAO {
 		return query.getResultStream().findFirst().orElse(null);
 	}
 
+	//TODO
+	@Override
+	public List<String> findAllDescrizioniWithUtentiAssociati() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

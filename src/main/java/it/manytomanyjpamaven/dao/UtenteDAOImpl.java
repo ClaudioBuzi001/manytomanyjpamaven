@@ -68,4 +68,31 @@ public class UtenteDAOImpl implements UtenteDAO {
 		return query.getResultList().stream().findFirst().orElse(null);
 	}
 
+	//TODO
+	@Override
+	public List<Utente> findAllByDateCreatedUgualeAGiugno() {
+		//Prendo tutti gli utenti con dataCreazione == giugno 2021
+		return entityManager.createQuery("select u from Utente u where dateCreated like '2021-06%'", Utente.class).getResultList();
+		
+	}
+
+	
+	@Override
+	public long countUtentiAdmin() {
+//		return entityManager.createQuery("select count(u) from Utente u join 
+		return 0;
+	}
+
+	@Override
+	public List<Utente> findAllByPasswordShorterThanEightChar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean checkUtentiDisabilitatiAlmenoUnAdmin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
