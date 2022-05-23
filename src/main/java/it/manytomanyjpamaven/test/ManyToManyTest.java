@@ -45,6 +45,8 @@ public class ManyToManyTest {
 			
 			testTrovaUtentiConPasswordMinoreDiOttoCaratteri(utenteServiceInstance);
 			
+			testControllaSeUtentiBloccatiAlmenoUnAdmin(utenteServiceInstance);
+			
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -230,6 +232,21 @@ public class ManyToManyTest {
 
 		System.out.println(".......testTrovaUtentiConPasswordMinoreDiOttoCaratteri fine: PASSED.............");
 		
+		
+	}
+	
+	private static void testControllaSeUtentiBloccatiAlmenoUnAdmin(UtenteService utenteServiceInstance) {
+		
+		System.out.println(".......testControllaSeUtentiBloccatiAlmenoUnAdmin inizio.............");
+
+		
+		
+		if (!utenteServiceInstance.controllaSeUtentiBloccatiAlmenoUnAdmin())
+			throw new RuntimeException("testControllaSeUtentiBloccatiAlmenoUnAdmin fallito ");
+		
+		System.out.println(utenteServiceInstance.controllaSeUtentiBloccatiAlmenoUnAdmin());
+
+		System.out.println(".......testControllaSeUtentiBloccatiAlmenoUnAdmin fine: PASSED.............");
 		
 	}
 	

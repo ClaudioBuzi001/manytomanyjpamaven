@@ -31,6 +31,7 @@ public interface UtenteService {
 	
 	public List<Utente> trovaUtentiConPasswordMinoreDiOttoCaratteri();
 	
+	public boolean controllaSeUtentiBloccatiAlmenoUnAdmin();
 	
 	//TODO Implementare firma metodi aggiuntivi
 

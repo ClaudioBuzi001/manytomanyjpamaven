@@ -303,4 +303,23 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 	}
 
+	@Override
+	public boolean controllaSeUtentiBloccatiAlmenoUnAdmin() {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			// uso l'injection per il dao
+			utenteDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			return utenteDAO.checkUtentiDisabilitatiAlmenoUnAdmin();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 }
