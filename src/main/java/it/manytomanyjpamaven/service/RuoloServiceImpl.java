@@ -146,4 +146,23 @@ public class RuoloServiceImpl implements RuoloService {
 		}
 	}
 
+	@Override
+	public List<String> trovaDescrizioniRuoliConUtentiAssociati() {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			// uso l'injection per il dao
+			ruoloDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			return ruoloDAO.findAllDescrizioniWithUtentiAssociati();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 }

@@ -47,6 +47,8 @@ public class ManyToManyTest {
 			
 			testControllaSeUtentiBloccatiAlmenoUnAdmin(utenteServiceInstance);
 			
+			testTrovaDescrizioniRuoliConUtentiAssociati(ruoloServiceInstance);
+			
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -252,7 +254,23 @@ public class ManyToManyTest {
 	
 	
 	
+	private static void testTrovaDescrizioniRuoliConUtentiAssociati(RuoloService ruoloServiceInstance) {
+		
+
+		System.out.println(".......testTrovaDescrizioniRuoliConUtentiAssociati inizio.............");
+
+		
+		List<String> result = ruoloServiceInstance.trovaDescrizioniRuoliConUtentiAssociati();
+		
+		for(String stringItem : result)
+			System.out.println(stringItem);
+		
 	
+
+		System.out.println(".......testTrovaDescrizioniRuoliConUtentiAssociati fine: PASSED.............");
+		
+		
+	}
 	
 	
 	

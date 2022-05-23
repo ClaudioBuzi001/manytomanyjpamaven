@@ -64,8 +64,18 @@ public class RuoloDAOImpl implements RuoloDAO {
 	//TODO
 	@Override
 	public List<String> findAllDescrizioniWithUtentiAssociati() {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<String> query = entityManager
+				.createQuery("select distinct r.descrizione from Utente u join u.ruoli r  ", String.class);
+		return query.getResultList();
 	}
 
 }
+
+
+
+
+
+
+
+
+
