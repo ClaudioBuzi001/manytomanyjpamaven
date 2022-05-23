@@ -26,6 +26,11 @@ public interface UtenteService {
 	public Utente caricaUtenteSingoloConRuoli(Long id) throws Exception;
 	
 	public List<Utente>	trovaTuttiConDataCreazineAGiugno();
+	
+	public long contaUtentiAdmin();
+	
+	
+	//TODO Implementare firma metodi aggiuntivi
 
 	// per injection
 	public void setUtenteDAO(UtenteDAO utenteDAO);

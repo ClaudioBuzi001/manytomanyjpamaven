@@ -79,10 +79,11 @@ public class UtenteDAOImpl implements UtenteDAO {
 	
 	@Override
 	public long countUtentiAdmin() {
-//		return entityManager.createQuery("select count(u) from Utente u join 
-		return 0;
+		return entityManager.createQuery("select count(u) from Utente u  join u.ruoli r where r.descrizione = 'Administrator' ", Long.class).getSingleResult();
+		
 	}
 
+	
 	@Override
 	public List<Utente> findAllByPasswordShorterThanEightChar() {
 		// TODO Auto-generated method stub

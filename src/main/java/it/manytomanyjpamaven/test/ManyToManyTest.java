@@ -25,21 +25,23 @@ public class ManyToManyTest {
 
 			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
 
-			testInserisciNuovoUtente(utenteServiceInstance);
-			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
-
-			testCollegaUtenteARuoloEsistente(ruoloServiceInstance, utenteServiceInstance);
-			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
-
-			testModificaStatoUtente(utenteServiceInstance);
-			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
-
-			testRimuoviRuoloDaUtente(ruoloServiceInstance, utenteServiceInstance);
-			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
-
-			testRimuoviUtente(utenteServiceInstance);
-			
+//			testInserisciNuovoUtente(utenteServiceInstance);
+//			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
+//
+//			testCollegaUtenteARuoloEsistente(ruoloServiceInstance, utenteServiceInstance);
+//			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
+//
+//			testModificaStatoUtente(utenteServiceInstance);
+//			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
+//
+//			testRimuoviRuoloDaUtente(ruoloServiceInstance, utenteServiceInstance);
+//			System.out.println("In tabella Utente ci sono " + utenteServiceInstance.listAll().size() + " elementi.");
+//
+//			testRimuoviUtente(utenteServiceInstance);
+//			
 			testTrovaTuttiConDataCreazineAGiugno(utenteServiceInstance)	;
+			
+			testContaUtentiAdmin(utenteServiceInstance);
 			
 			
 		} catch (Throwable e) {
@@ -197,6 +199,19 @@ public class ManyToManyTest {
 		
 	}
 	
+	
+	private static void testContaUtentiAdmin(UtenteService utenteServiceInstance) {
+		System.out.println(".......testContaUtentiAdmin inizio.............");
+
+		Long result = utenteServiceInstance.contaUtentiAdmin();
+		
+		if (result == 0)
+			throw new RuntimeException("testContaUtentiAdmin fallito ");
+		System.out.println(result);
+
+		System.out.println(".......testContaUtentiAdmin fine: PASSED.............");
+		
+	}
 	
 	
 	
